@@ -1,7 +1,20 @@
 {
   "name": "cheat-snippets",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "A free service where you can make code snippets and copy-paste whenever needed.",
+  "keywords": [
+    "cheatsheet",
+    "snippets",
+    "firebase",
+    "react",
+    "createreactapp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KrishGarg/cheat-snippets.git"
+  },
+  "author": "Krish Garg",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
