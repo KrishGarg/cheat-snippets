@@ -6,7 +6,11 @@ const RespLink = ({ children, to, ...rest }) => {
   const { pathname } = useLocation();
 
   return (
-    <Link {...rest} className={`nav-link ${pathname === to ? "active" : ""}`}>
+    <Link
+      {...rest}
+      to={to}
+      className={`nav-link ${pathname === to ? "active" : ""}`}
+    >
       {children}
     </Link>
   );
