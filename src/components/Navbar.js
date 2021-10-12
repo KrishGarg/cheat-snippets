@@ -1,9 +1,8 @@
 import React from "react";
 
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
+import RespLink from "./RespLink";
 import logo from "../assets/note.png";
-
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -16,9 +15,7 @@ const Navbar = () => {
         <NavbarBootstrap.Toggle aria-controls="basic-navbar-nav" />
         <NavbarBootstrap.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className="nav-link" to="/">
-              Home
-            </Link>
+            <RespLink to="/">Home</RespLink>
           </Nav>
         </NavbarBootstrap.Collapse>
       </Container>
