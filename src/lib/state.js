@@ -2,7 +2,7 @@ import create from "zustand";
 
 const useStore = create((set) => ({
   // Authentication status of the client.
-  isAuthenticated: false,
+  isAuthenticated: true,
   setAuthStatus: (setTo) => set((_) => ({ isAuthenticated: setTo })),
 
   // Authenticated user's information.

@@ -1,5 +1,7 @@
 import React, { createContext, useContext } from "react";
 import useStore from "../lib/state";
+import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import { auth, provider } from "../lib/firebase";
 
 const AuthContext = createContext();
 
@@ -7,17 +9,23 @@ export const AuthProvider = ({ children }) => {
   const setAuthStatus = useStore((state) => state.setAuthStatus);
   const setUser = useStore((state) => state.setUser);
 
-  const logout = () => {
-    console.log("logout");
-    setAuthStatus(false);
-    setUser(null);
+  const login = () => {
+    signInWithPopup(auth, provider);
   };
 
-  const login = () => {
-    console.log("login");
-    setAuthStatus(true);
-    setUser(null); // User data instead
+  const logout = () => {
+    signOut(auth);
   };
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setAuthStatus(true);
+      setUser(user);
+    } else {
+      setAuthStatus(false);
+      setUser(null);
+    }
+  });
 
   const context = {
     login,
