@@ -8,19 +8,21 @@ import {
 } from "react-bootstrap";
 import RespLink from "./RespLink";
 import logo from "../assets/note.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import useStore from "../lib/state";
 import { useAuthContext } from "../context/auth";
 
 const Navbar = () => {
   const isAuthenticated = useStore((state) => state.isAuthenticated);
-  const { login, logout } = useAuthContext();
+  const { logout } = useAuthContext();
+  const history = useHistory();
+  const { pathname } = useLocation();
 
   const handleLoginOut = () => {
     if (isAuthenticated) {
       logout();
     } else {
-      login();
+      history.push("/login");
     }
   };
 
@@ -39,6 +41,7 @@ const Navbar = () => {
           <Button
             onClick={handleLoginOut}
             variant={isAuthenticated ? "danger" : "primary"}
+            disabled={pathname === "/login"}
           >
             Log{isAuthenticated ? "out" : "in"}
           </Button>

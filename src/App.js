@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
 import Navbar from "./components/Navbar";
 import Snippets from "./components/Snippets";
+import Login from "./components/Login";
 
 // Context
 import { AuthProvider } from "./context/auth";
@@ -19,7 +20,7 @@ function App() {
             <Snippets />
           </Route>
           <Route exact path="/login">
-            <h1 style={{ fontSize: "3em" }}>hello world</h1>
+            <Login />
           </Route>
         </Switch>
       </Router>

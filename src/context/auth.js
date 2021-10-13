@@ -4,8 +4,6 @@ import useStore from "../lib/state";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const isAuthenticated = useStore((state) => state.isAuthenticated);
-  const user = useStore((state) => state.user);
   const setAuthStatus = useStore((state) => state.setAuthStatus);
   const setUser = useStore((state) => state.setUser);
 
