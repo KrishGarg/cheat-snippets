@@ -2,13 +2,12 @@ import React from "react";
 
 import { Card, Button } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { useAuthContext } from "../context/auth";
+import { login } from "../lib/firebase";
 import useStore from "../lib/state";
 
 const Login = () => {
   const isAuthenticated = useStore((state) => state.isAuthenticated);
   const history = useHistory();
-  const { login } = useAuthContext();
 
   if (isAuthenticated) {
     history.push("/");

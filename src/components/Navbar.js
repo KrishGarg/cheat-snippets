@@ -10,11 +10,10 @@ import RespLink from "./RespLink";
 import logo from "../assets/note.png";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import useStore from "../lib/state";
-import { useAuthContext } from "../context/auth";
+import { logout } from "../lib/firebase";
 
 const Navbar = () => {
   const isAuthenticated = useStore((state) => state.isAuthenticated);
-  const { logout } = useAuthContext();
   const history = useHistory();
   const { pathname } = useLocation();
 
