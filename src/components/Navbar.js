@@ -1,15 +1,26 @@
 import React from "react";
 
+// Bootstrap Components
 import {
   Navbar as NavbarBootstrap,
   Container,
   Nav,
   Button,
 } from "react-bootstrap";
+
+// My Components
 import RespLink from "./RespLink";
+
+// Logo
 import logo from "../assets/note.png";
+
+// Router stuff
 import { Link, useHistory, useLocation } from "react-router-dom";
+
+// State
 import useStore from "../lib/state";
+
+// Helper methods
 import { logout } from "../lib/firebase";
 
 const Navbar = () => {
@@ -17,6 +28,7 @@ const Navbar = () => {
   const history = useHistory();
   const { pathname } = useLocation();
 
+  // Log in/out button click handler, logouts if an authenticated user clicks, and redirects to login page if an unauthenticated user clicks.
   const handleLoginOut = () => {
     if (isAuthenticated) {
       logout();
