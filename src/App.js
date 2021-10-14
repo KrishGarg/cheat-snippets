@@ -1,11 +1,14 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// Router Stuff
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
 // Components
 import Navbar from "./components/Navbar";
 import Snippets from "./components/Snippets";
 import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
 
 // Auth stuff
 import { onAuthStateChanged } from "firebase/auth";
@@ -33,12 +36,8 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/">
-          <Snippets />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
+        <PrivateRoute exact path="/" component={Snippets} />
+        <PublicRoute restricted exact path="/login" component={Login} />
       </Switch>
     </Router>
   );
